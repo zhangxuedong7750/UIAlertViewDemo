@@ -12,7 +12,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        let btn = UIButton();
+        btn.frame = CGRectMake(100, 300, 100, 40)
+        btn.setTitle("弹窗", forState: UIControlState.Normal)
+        btn.backgroundColor = UIColor.redColor()
+        btn.addTarget(self, action: "alert", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(btn)
+        
+    }
+    
+    func alert() {
+        UIAlertView.setMessage("是否关闭alertView").addFitstButton("取消").addSecondButton("确认").alertWithButtonClick { (buttonIndex, alert) -> Void in
+            print(buttonIndex)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +35,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 
